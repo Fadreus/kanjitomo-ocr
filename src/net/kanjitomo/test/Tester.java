@@ -317,17 +317,17 @@ public class Tester {
 		Parameters par = Parameters.getInstance();
 		par.printLevel = PrintLevel.DEBUG;
 		par.saveAreaImages = SaveAreaImages.OFF;
-		par.saveOCRImages = SaveOCRImages.ALL;
+		par.saveOCRImages = SaveOCRImages.OFF;
 		par.ocrThreads = 1;
 		par.primaryDictionary = null;
 		
 		Tester tester = new Tester();
 		try {
 			tester.loadData();
-			tester.clearDebugImages();			
-//			tester.runTests(true, true);
-			tester.runTests("default", false, true, "今", "1.png");
-//			tester.runTests("local", false, true, "生", "2.png");
+			tester.clearDebugImages();
+			tester.runTests(false, true);
+//			tester.runTests("default", false, true, "今", "1.png");
+//			tester.runTests("local", false, true, "想", "487.png");
 //			tester.runTestSearchDefault("日", true);
 //			tester.runTestSearchNames("あきら", true);
 //			tester.runTestSearchCombined("希一", true);

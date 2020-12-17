@@ -177,7 +177,7 @@ public class FindAreas extends AreaStep {
 		
 		// TODO find worst case ratio for valid characters			
 		float ratio = 1.0f*pixels.size() / (height * width);
-		if (area.getSize() > 300 && ratio < 0.11f) {
+		if (area.getSize() > 300 && ratio < 0.09f) {
 			return;
 		}
 	
@@ -231,13 +231,13 @@ public class FindAreas extends AreaStep {
 		// this check is only needed for small bubbles that enclose a few characters,
 		// large bubbles are rejected because their pixel/area ratio is too low 
 		
-		if (area.getWidth() < 40 || area.getHeight() < 40) {
+		if (area.getWidth() < 80 || area.getHeight() < 80) {
 			// areas smaller than these are likely to represent single characters
 			return false;
 		}
 		
 		// ellipse parameters
-		float size = 0.85f;
+		float size = 0.88f;
 		float a2 = (float) Math.pow(1.0f*area.getWidth()/2*size, 2);
 		float b2 = (float) Math.pow(1.0f*area.getHeight()/2*size, 2);
 		int centerX = area.getMidpoint().x;
@@ -264,7 +264,7 @@ public class FindAreas extends AreaStep {
 
 		// reject area if most of the pixels are located outside the ellipse
 		float ratio = 1.0f*pixels/area.getPixels();
-		if (ratio > 0.9f) {
+		if (ratio > 0.92f) {
 			return true;
 		} else {
 			return false;

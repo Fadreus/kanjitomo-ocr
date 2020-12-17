@@ -21,7 +21,7 @@ public class Parameters {
 		if (par == null) {
 			par = new Parameters();
 		}
-		
+		 
 		return par;
 	}
 	
@@ -88,6 +88,15 @@ public class Parameters {
 	public int pixelRGBThreshold = 140;
 	
 	/**
+	 * Fixed black level can be used to manually specify (pick) text color
+	 */
+	public static boolean fixedBlackLevelEnabled = false;
+	public static int fixedBlackLevelRed = 0;
+	public static int fixedBlackLevelGreen = 0;
+	public static int fixedBlackLevelBlue = 0;
+	public static int fixedBlackLevelRange = 50;
+	
+	/**
 	 * How many halo layers are generated around reference and target characters.
 	 * If this is increased ReferenceMatrixCacheBuilder must be run again. Most layers are
 	 * one pixel wide, last layer contains all remaining pixels.
@@ -137,14 +146,14 @@ public class Parameters {
 	public float ocrBaseScore = 1000f;
 	
 	/**
-	 * Number of best results that are refined and returned
+	 * Number of best results that are returned from OCR stage 1
 	 */
-	public int ocrKeepResultsLevel1 = 50;
+	public int ocrKeepResultsStage1 = 30;
 	
 	/**
-	 * Number of best results that are refined further
+	 * Number of best results that are returned from OCR stage 2
 	 */
-	public int ocrkeepResultsLevel2 = 12;
+	public int ocrkeepResultsStage2 = 10;
 	
 	/**
 	 * Maximum number of target characters that can be returned by
